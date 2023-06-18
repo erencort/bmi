@@ -1,7 +1,5 @@
-import "./App.css";
-
 function App() {
-  return <div>bmi</div>;
+  return <div className="text-3xl font-bold underline">bmi</div>;
 }
 
 export default App;
