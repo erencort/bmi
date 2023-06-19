@@ -5,7 +5,9 @@ function SideBarNav() {
   return (
     <div>
       <div className="text-3xl text-center py-5 border-b-4 border-green-600">
-        BMI CALCULATOR
+        <Link to="/">
+          <span className="cursor-pointer">BMI CALCULATOR</span>
+        </Link>
       </div>
       <div>
         <ul>
