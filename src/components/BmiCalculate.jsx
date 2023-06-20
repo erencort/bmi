@@ -9,6 +9,19 @@ function BmiCalculate() {
 
   const calculateBmi = () => {
     setBmi(weight / ((height / 100) ^ 2));
+    let score = weight / ((height / 100) ^ 2);
+    score = score.toFixed(2);
+
+    if (localStorage.getItem("records")) {
+      let records = JSON.parse(localStorage.records);
+      records = [...records, score];
+      let write = JSON.stringify(records);
+      localStorage.setItem("records", write);
+    } else {
+      let myArray = [score];
+      let write = JSON.stringify(myArray);
+      localStorage.setItem("records", write);
+    }
   };
 
   return (
