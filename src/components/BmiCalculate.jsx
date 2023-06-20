@@ -3,24 +3,28 @@ import { useState } from "react";
 import BmiResult from "./BmiResult";
 
 function BmiCalculate() {
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [bmi, setBmi] = useState();
 
   const calculateBmi = () => {
-    setBmi(weight / ((height / 100) ^ 2));
-    let score = weight / ((height / 100) ^ 2);
-    score = score.toFixed(2);
-
-    if (localStorage.getItem("records")) {
-      let records = JSON.parse(localStorage.records);
-      records = [...records, score];
-      let write = JSON.stringify(records);
-      localStorage.setItem("records", write);
+    if (height == "" || weight == "") {
+      alert("Please enter vaild values.");
     } else {
-      let myArray = [score];
-      let write = JSON.stringify(myArray);
-      localStorage.setItem("records", write);
+      setBmi(weight / ((height / 100) ^ 2));
+      let score = weight / ((height / 100) ^ 2);
+      score = score.toFixed(2);
+
+      if (localStorage.getItem("records")) {
+        let records = JSON.parse(localStorage.records);
+        records = [...records, score];
+        let write = JSON.stringify(records);
+        localStorage.setItem("records", write);
+      } else {
+        let myArray = [score];
+        let write = JSON.stringify(myArray);
+        localStorage.setItem("records", write);
+      }
     }
   };
 
@@ -33,6 +37,8 @@ function BmiCalculate() {
           </span>
           <input
             onChange={(e) => setHeight(e.target.value)}
+            inputMode="numeric"
+            type="number"
             name="height"
             className="mt-1 px-3 py-2 bg-white border shadow-sm text-black border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
             placeholder="180cm"
@@ -44,8 +50,10 @@ function BmiCalculate() {
           </span>
           <input
             onChange={(e) => setWeight(e.target.value)}
+            inputMode="numeric"
+            type="number"
             name="weight"
-            className="mt-1 px-3 py-2 bg-white border shadow-sm text-black border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            className=" mt-1 px-3 py-2 bg-white border shadow-sm text-black border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
             placeholder="70kg"
           />
         </label>
