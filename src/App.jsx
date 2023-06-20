@@ -2,7 +2,7 @@ import BmiCalculate from "./components/BmiCalculate";
 import SideBarNav from "./components/SideBarNav";
 import { Routes, Route } from "react-router-dom";
 import WhatIsBmi from "./components/WhatIsBmi";
-import BmiResults from "./components/BmiResults";
+import BmiRecords from "./components/BmiRecords";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<BmiCalculate />} />
             <Route path="/whatisbmi" element={<WhatIsBmi />} />
-            <Route path="/results" element={<BmiResults />} />
+            <Route path="/records" element={<BmiRecords />} />
           </Routes>
         </div>
       </div>

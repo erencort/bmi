@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import BmiResult from "./BmiResult";
 
 function BmiCalculate() {
   const [height, setHeight] = useState();
   const [weight, setWeight] = useState();
-  const [gender, setGender] = useState();
   const [bmi, setBmi] = useState();
 
   const calculateBmi = () => {
-    setBmi(weight / (height ^ 2));
+    setBmi(weight / ((height / 100) ^ 2));
   };
 
   return (
@@ -36,40 +36,18 @@ function BmiCalculate() {
             placeholder="70kg"
           />
         </label>
-        <div className="mt-3 flex justify-around">
-          <div>
-            <input
-              onChange={(e) => setGender(e.target.value)}
-              id="male"
-              type="radio"
-              name="gender"
-              value="male"
-            />
-            <label htmlFor="male">Male</label>
-          </div>
-          <div>
-            <input
-              onChange={(e) => setGender(e.target.value)}
-              id="female"
-              type="radio"
-              name="gender"
-              value="female"
-            />
-            <label htmlFor="female">Female</label>
-          </div>
-        </div>
 
         <button
           onClick={() => {
             calculateBmi();
           }}
           type="button"
-          className="block mx-auto text-black bg-gray-300 hover:bg-gray-500 focus:outline-none  font-medium rounded-xl text-m mt-2 px-5 py-1.5"
+          className="block mt-6 mx-auto text-black bg-gray-300 hover:bg-gray-500 focus:outline-none  font-medium rounded-xl text-m px-5 py-1.5"
         >
           Calculate
         </button>
       </form>
-      {bmi}
+      {bmi && <BmiResult bmi={bmi} />}
     </div>
   );
 }

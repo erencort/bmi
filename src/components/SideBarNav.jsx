@@ -21,7 +21,7 @@ function SideBarNav() {
               </li>
             </Link>
           </Link>
-          <Link to="results">
+          <Link to="records">
             <li className="border-2 border-black bg-gray-800 hover:bg-gray-500 px-3 py-3 flex justify-between">
               <span>Records</span> <span>{">"}</span>
             </li>
