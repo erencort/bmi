@@ -10,13 +10,13 @@ function App() {
       style={{ backgroundColor: "#242424" }}
       className="h-screen text-white font-serif"
     >
-      <div className="grid grid-cols-4 gap-4">
+      <div className="  desktop:grid desktop:grid-cols-4 desktop:gap-4">
         {/*Sidebar*/}
-        <div className="border-r-4 border-green-600 h-screen">
+        <div className="border-r-4 border-green-600 desktop:h-screen  ">
           <SideBarNav />
         </div>
 
-        <div className="col-span-3">
+        <div className=" desktop:col-span-3 ">
           <Routes>
             <Route path="/" element={<BmiCalculate />} />
             <Route path="/whatisbmi" element={<WhatIsBmi />} />
